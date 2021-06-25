@@ -4,6 +4,6 @@ import {Injectable} from "@angular/core";
 export class ErrorHandlerService {
   process(errors: any, errorContainer: HTMLElement): void {
     // TODO: translate and process errors or show overlay (cdk)
-    errorContainer.innerText = JSON.stringify(errors);
+    errorContainer.innerText = errors.required ? 'The field is required' : JSON.stringify(errors);
   }
 }
