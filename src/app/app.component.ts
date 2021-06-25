@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'labs-angular-material-generic-error';
+  formGroup: FormGroup;
+  bar = new FormControl('', [Validators.required]);
+
+  constructor(formBuilder: FormBuilder) {
+    this.formGroup = formBuilder.group({
+      foo: ['', [Validators.required]],
+      bar: this.bar
+    });
+  }
+
 }
